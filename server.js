@@ -6,10 +6,13 @@ require('dotenv').config()
 require('express-async-errors')
 const productsroutes = require('./routes/products')
 // const auth = require('./controllers/auth')
+const path = require('path');
+
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
 app.use('/uploads', express.static('uploads')); // Serve static files
+app.use('/media', express.static(path.join(__dirname, 'media')));
 
 
 const notFoundMiddleware = require('./middleware/not-found')
